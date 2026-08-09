@@ -1,0 +1,1237 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ВелоМастер — Профессиональный сервис Shimano · SRAM · Fox | Минск</title>
+  <meta name="description" content="Вернём вашему велосипеду заводскую точность за один день. Профессиональный сервис Shimano, SRAM и Fox. Бесплатная диагностика, гарантия 12 месяцев.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --graphite: #111111;
+      --gold: #D4A514;
+      --gold-hover: #E8B820;
+      --gold-dim: rgba(212, 165, 20, 0.12);
+      --light: #F8F8F8;
+      --card-dark: #2B2B2B;
+      --text: #111111;
+      --text-muted: #6B6B6B;
+      --text-on-dark: #F0F0F0;
+      --text-muted-dark: #A0A0A0;
+      --border: #E8E8E8;
+      --border-dark: #3A3A3A;
+      --white: #FFFFFF;
+      --shadow: 0 8px 32px rgba(0,0,0,0.08);
+      --shadow-lg: 0 16px 48px rgba(0,0,0,0.12);
+      --radius: 16px;
+      --radius-sm: 10px;
+      --header-h: 76px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--light);
+      color: var(--text);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; text-decoration: none; }
+    button, .btn { font-family: inherit; cursor: pointer; border: none; outline: none; }
+    .container { width: 100%; max-width: 1160px; margin: 0 auto; padding: 0 20px; }
+
+    .icon {
+      display: inline-flex;
+      width: 22px; height: 22px;
+      stroke: currentColor; fill: none;
+      stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round;
+      flex-shrink: 0;
+    }
+    .icon--sm { width: 18px; height: 18px; }
+    .icon--lg { width: 28px; height: 28px; }
+
+    /* HEADER */
+    .header {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(17,17,17,0.92);
+      backdrop-filter: blur(14px);
+      height: var(--header-h);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .header__inner {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 100%; gap: 16px;
+    }
+    .logo {
+      font-weight: 800; font-size: 1.3rem; letter-spacing: -0.03em;
+      color: var(--white); display: flex; align-items: center; gap: 8px;
+    }
+    .logo span { color: var(--gold); }
+    .header__info {
+      display: none; align-items: center; gap: 28px;
+      font-size: 0.875rem; color: var(--text-muted-dark);
+    }
+    .header__info a { color: var(--white); font-weight: 600; transition: color 0.2s; }
+    .header__info a:hover { color: var(--gold); }
+    .header__phone { font-weight: 700; font-size: 0.95rem; color: var(--white) !important; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 13px 22px; border-radius: 50px; font-weight: 600; font-size: 0.9375rem;
+      transition: all 0.22s ease; white-space: nowrap;
+    }
+    .btn--gold { background: var(--gold); color: var(--graphite); }
+    .btn--gold:hover {
+      background: var(--gold-hover); transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(212,165,20,0.35);
+    }
+    .btn--outline-light {
+      background: transparent; border: 1.5px solid rgba(255,255,255,0.35); color: var(--white);
+    }
+    .btn--outline-light:hover { border-color: var(--white); background: rgba(255,255,255,0.08); }
+    .btn--outline-dark {
+      background: transparent; border: 1.5px solid var(--graphite); color: var(--graphite);
+    }
+    .btn--outline-dark:hover { background: var(--graphite); color: var(--white); }
+    .btn--sm { padding: 9px 16px; font-size: 0.85rem; }
+    .btn--full { width: 100%; }
+    .header__cta { display: flex; gap: 10px; align-items: center; }
+    .mobile-call { display: flex; }
+
+    /* HERO */
+    .hero {
+      background: var(--graphite); color: var(--white);
+      padding: 48px 0 56px; position: relative; overflow: hidden;
+    }
+    .hero__grid {
+      display: grid; grid-template-columns: 1fr; gap: 40px; align-items: center;
+    }
+    .hero__badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--gold-dim); color: var(--gold);
+      font-size: 0.8rem; font-weight: 600; padding: 7px 14px;
+      border-radius: 50px; margin-bottom: 20px; letter-spacing: 0.02em;
+    }
+    .hero h1 {
+      font-size: clamp(1.85rem, 4.5vw, 2.85rem); font-weight: 800;
+      line-height: 1.12; letter-spacing: -0.035em; margin-bottom: 16px;
+    }
+    .hero__subtitle {
+      font-size: 1.1rem; color: var(--text-muted-dark);
+      margin-bottom: 28px; max-width: 480px; line-height: 1.5;
+    }
+    .hero__actions { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 36px; }
+    .hero__perks { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 20px; }
+    .hero__perk {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 0.9rem; color: var(--text-on-dark);
+    }
+    .hero__perk .icon { color: var(--gold); width: 20px; height: 20px; }
+
+    .hero__visual { position: relative; display: flex; justify-content: center; }
+    .hero__photo-wrap {
+      position: relative; width: 100%; max-width: 440px;
+      border-radius: 20px; overflow: hidden; aspect-ratio: 4/5;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.4);
+    }
+    .hero__photo-wrap img { width: 100%; height: 100%; object-fit: cover; }
+    .float-card {
+      position: absolute; background: var(--white); color: var(--text);
+      border-radius: 14px; padding: 14px 16px; box-shadow: var(--shadow-lg);
+      display: flex; align-items: center; gap: 12px; z-index: 5;
+    }
+    .float-card--rating { top: 24px; left: -12px; }
+    .float-card--guarantee { bottom: 28px; right: -8px; }
+    .float-card__icon {
+      width: 42px; height: 42px; border-radius: 12px;
+      background: var(--gold-dim); display: flex; align-items: center;
+      justify-content: center; color: var(--gold); flex-shrink: 0;
+    }
+    .float-card__value {
+      font-weight: 800; font-size: 1.15rem; letter-spacing: -0.02em; line-height: 1.2;
+    }
+    .float-card__label { font-size: 0.75rem; color: var(--text-muted); font-weight: 500; }
+
+    /* LIVE BAR */
+    .live-bar {
+      background: var(--card-dark); color: var(--text-on-dark);
+      padding: 14px 0; border-bottom: 1px solid var(--border-dark);
+    }
+    .live-bar__inner {
+      display: flex; flex-wrap: wrap; align-items: center;
+      justify-content: center; gap: 12px 28px; font-size: 0.875rem;
+    }
+    .live-dot {
+      width: 8px; height: 8px; border-radius: 50%; background: #22C55E;
+      box-shadow: 0 0 0 3px rgba(34,197,94,0.25); animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 3px rgba(34,197,94,0.25); }
+      50% { box-shadow: 0 0 0 6px rgba(34,197,94,0.1); }
+    }
+    .live-item { display: flex; align-items: center; gap: 8px; }
+    .live-item strong { color: var(--gold); font-weight: 700; }
+
+    /* TRUST STRIP */
+    .trust-strip {
+      background: var(--white); padding: 28px 0; border-bottom: 1px solid var(--border);
+    }
+    .trust-strip__inner {
+      display: flex; flex-wrap: wrap; justify-content: center;
+      gap: 24px 40px; align-items: center;
+    }
+    .trust-item {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 0.9rem; font-weight: 600; color: var(--text);
+    }
+    .trust-item .icon { color: var(--gold); }
+
+    /* SECTIONS */
+    section { padding: 72px 0; }
+    .section-title {
+      font-size: clamp(1.55rem, 3.5vw, 2.1rem); font-weight: 800;
+      letter-spacing: -0.03em; margin-bottom: 10px; text-align: center;
+    }
+    .section-subtitle {
+      text-align: center; color: var(--text-muted); margin-bottom: 44px;
+      max-width: 520px; margin-left: auto; margin-right: auto; font-size: 1.05rem;
+    }
+
+    /* PRICE */
+    .price { background: var(--white); }
+    .tabs {
+      display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 28px;
+    }
+    .tab {
+      padding: 11px 20px; border-radius: 50px; background: var(--light);
+      border: 1px solid var(--border); font-weight: 600; font-size: 0.875rem;
+      color: var(--text-muted); transition: all 0.2s;
+    }
+    .tab:hover { border-color: var(--gold); color: var(--text); }
+    .tab.active {
+      background: var(--graphite); border-color: var(--graphite); color: var(--white);
+    }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; animation: fadeIn 0.3s ease; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .price-table {
+      width: 100%; border-collapse: collapse; background: var(--white);
+      border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border);
+    }
+    .price-table th, .price-table td {
+      padding: 16px 18px; text-align: left; border-bottom: 1px solid var(--border);
+    }
+    .price-table th {
+      background: var(--light); font-size: 0.75rem; text-transform: uppercase;
+      letter-spacing: 0.05em; color: var(--text-muted); font-weight: 600;
+    }
+    .price-table tr:last-child td { border-bottom: none; }
+    .price-table tr:hover td { background: rgba(212,165,20,0.04); }
+    .price-table td:last-child { font-weight: 700; white-space: nowrap; color: var(--graphite); }
+    .price-table .note {
+      font-size: 0.8rem; color: var(--text-muted); font-weight: 400;
+      display: block; margin-top: 2px;
+    }
+    .price-cta { text-align: center; margin-top: 36px; }
+    .premium-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+    .premium-card {
+      background: var(--graphite); color: var(--white); border-radius: var(--radius);
+      padding: 28px; position: relative; overflow: hidden;
+    }
+    .premium-card::before {
+      content: ''; position: absolute; top: 0; right: 0;
+      width: 120px; height: 120px;
+      background: radial-gradient(circle, rgba(212,165,20,0.15) 0%, transparent 70%);
+    }
+    .premium-card h3 {
+      font-size: 1.15rem; margin-bottom: 10px;
+      display: flex; align-items: center; gap: 10px; position: relative;
+    }
+    .premium-card h3 .icon { color: var(--gold); }
+    .premium-card p {
+      font-size: 0.925rem; color: var(--text-muted-dark);
+      margin-bottom: 16px; position: relative;
+    }
+    .premium-card .price-tag {
+      font-weight: 800; font-size: 1.2rem; color: var(--gold); position: relative;
+    }
+    .premium-card .price-tag span {
+      display: block; font-size: 0.85rem; font-weight: 500;
+      color: var(--text-muted-dark); margin-top: 2px;
+    }
+
+    /* STEPS */
+    .steps { display: grid; grid-template-columns: 1fr; gap: 16px; }
+    .step {
+      display: flex; gap: 18px; align-items: flex-start;
+      background: var(--white); padding: 24px; border-radius: var(--radius);
+      border: 1px solid var(--border); transition: box-shadow 0.25s, border-color 0.25s;
+    }
+    .step:hover { box-shadow: var(--shadow); border-color: transparent; }
+    .step__num {
+      flex-shrink: 0; width: 44px; height: 44px; border-radius: 12px;
+      background: var(--graphite); color: var(--gold); font-weight: 800;
+      display: flex; align-items: center; justify-content: center; font-size: 1.1rem;
+    }
+    .step h3 { font-size: 1.05rem; margin-bottom: 4px; }
+    .step p { font-size: 0.9rem; color: var(--text-muted); }
+
+    /* STATS */
+    .stats { background: var(--graphite); color: var(--white); }
+    .stats .section-title { color: var(--white); }
+    .stats .section-subtitle { color: var(--text-muted-dark); }
+    .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .stat-card {
+      background: var(--card-dark); border-radius: var(--radius);
+      padding: 28px 24px; border: 1px solid var(--border-dark);
+      transition: border-color 0.25s;
+    }
+    .stat-card:hover { border-color: var(--gold); }
+    .stat-card__icon {
+      width: 48px; height: 48px; border-radius: 12px;
+      background: var(--gold-dim); display: flex; align-items: center;
+      justify-content: center; color: var(--gold); margin-bottom: 16px;
+    }
+    .stat-card__value {
+      font-size: 1.75rem; font-weight: 800; letter-spacing: -0.03em;
+      margin-bottom: 4px; color: var(--gold);
+    }
+    .stat-card h3 { font-size: 1rem; margin-bottom: 6px; color: var(--white); }
+    .stat-card p { font-size: 0.875rem; color: var(--text-muted-dark); line-height: 1.45; }
+
+    /* GALLERY */
+    .gallery-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .gallery-item {
+      border-radius: var(--radius-sm); overflow: hidden; position: relative;
+      aspect-ratio: 4/3; background: var(--card-dark);
+    }
+    .gallery-item img {
+      width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;
+    }
+    .gallery-item:hover img { transform: scale(1.04); }
+    .gallery-caption {
+      position: absolute; bottom: 0; left: 0; right: 0; padding: 16px 18px;
+      background: linear-gradient(transparent, rgba(0,0,0,0.75));
+      color: var(--white); font-size: 0.85rem; font-weight: 600;
+    }
+
+    /* BEFORE AFTER */
+    .ba-wrapper {
+      max-width: 720px; margin: 0 auto; position: relative;
+      border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-lg);
+      user-select: none; touch-action: none; background: var(--card-dark);
+    }
+    .ba-wrapper img {
+      width: 100%; display: block; pointer-events: none;
+      aspect-ratio: 16/10; object-fit: cover;
+    }
+    .ba-after {
+      position: absolute; top: 0; left: 0; width: 50%; height: 100%; overflow: hidden;
+    }
+    .ba-after img {
+      position: absolute; top: 0; left: 0; height: 100%;
+      width: auto; max-width: none; min-width: 720px;
+    }
+    .ba-handle {
+      position: absolute; top: 0; left: 50%; width: 3px; height: 100%;
+      background: var(--gold); transform: translateX(-50%); cursor: ew-resize; z-index: 5;
+    }
+    .ba-handle::before {
+      content: ''; position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%); width: 48px; height: 48px;
+      background: var(--gold); border-radius: 50%;
+      border: 3px solid var(--white); box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+    }
+    .ba-handle::after {
+      content: '⟷'; position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%); font-size: 1.15rem; font-weight: 700;
+      color: var(--graphite); z-index: 1;
+    }
+    .ba-labels {
+      position: absolute; top: 14px; left: 14px; right: 14px;
+      display: flex; justify-content: space-between; pointer-events: none; z-index: 4;
+    }
+    .ba-label {
+      background: rgba(17,17,17,0.8); color: #fff; font-size: 0.75rem;
+      font-weight: 600; padding: 5px 12px; border-radius: 6px; letter-spacing: 0.03em;
+    }
+
+    /* WORKSHOP */
+    .workshop { background: var(--white); }
+    .workshop-scroll {
+      display: flex; gap: 14px; overflow-x: auto; padding-bottom: 12px;
+      scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
+    }
+    .workshop-scroll::-webkit-scrollbar { height: 6px; }
+    .workshop-scroll::-webkit-scrollbar-track { background: var(--border); border-radius: 3px; }
+    .workshop-scroll::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
+    .workshop-item {
+      flex: 0 0 280px; scroll-snap-align: start; border-radius: var(--radius-sm);
+      overflow: hidden; aspect-ratio: 3/4; position: relative;
+    }
+    .workshop-item img { width: 100%; height: 100%; object-fit: cover; }
+    .workshop-item span {
+      position: absolute; bottom: 12px; left: 12px;
+      background: rgba(17,17,17,0.75); color: #fff; font-size: 0.75rem;
+      font-weight: 600; padding: 4px 10px; border-radius: 6px;
+    }
+
+    /* REVIEWS */
+    .reviews-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+    .review-card {
+      background: var(--white); border-radius: var(--radius); padding: 28px;
+      border: 1px solid var(--border); transition: box-shadow 0.25s;
+    }
+    .review-card:hover { box-shadow: var(--shadow); }
+    .review-card__header {
+      display: flex; align-items: center; gap: 14px; margin-bottom: 14px;
+    }
+    .review-card__avatar {
+      width: 52px; height: 52px; border-radius: 50%; object-fit: cover;
+      border: 2px solid var(--gold);
+    }
+    .review-card__name { font-weight: 700; font-size: 1rem; }
+    .review-card__meta { font-size: 0.8rem; color: var(--text-muted); }
+    .review-card__stars {
+      color: var(--gold); letter-spacing: 2px; font-size: 0.95rem; margin-bottom: 10px;
+    }
+    .review-card p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.55; }
+    .reviews-more { text-align: center; margin-top: 32px; }
+
+    /* PROMO */
+    .promo {
+      background: linear-gradient(135deg, #1a1508 0%, #2B2B2B 50%, #1a1508 100%);
+      color: var(--white); position: relative; overflow: hidden;
+    }
+    .promo::before {
+      content: ''; position: absolute; top: -50%; right: -20%;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(212,165,20,0.18) 0%, transparent 70%);
+    }
+    .promo__inner {
+      display: flex; flex-direction: column; align-items: center;
+      text-align: center; gap: 20px; position: relative;
+    }
+    .promo__badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--gold); color: var(--graphite); font-size: 0.8rem;
+      font-weight: 700; padding: 6px 14px; border-radius: 50px;
+      text-transform: uppercase; letter-spacing: 0.04em;
+    }
+    .promo h2 {
+      font-size: clamp(1.4rem, 3vw, 1.9rem); font-weight: 800;
+      letter-spacing: -0.02em; max-width: 520px;
+    }
+    .promo p { color: var(--text-muted-dark); max-width: 440px; }
+    .promo__timer {
+      display: flex; gap: 12px; font-weight: 700; font-size: 1.4rem; color: var(--gold);
+    }
+    .promo__timer span {
+      background: rgba(0,0,0,0.35); padding: 10px 14px; border-radius: 10px; min-width: 56px;
+    }
+
+    /* CONTACTS */
+    .contacts { background: var(--white); }
+    .contacts-grid { display: grid; grid-template-columns: 1fr; gap: 36px; }
+    .contacts__info h3 { font-size: 1.35rem; margin-bottom: 20px; letter-spacing: -0.02em; }
+    .contacts__list { list-style: none; margin-bottom: 28px; }
+    .contacts__list li {
+      display: flex; gap: 14px; margin-bottom: 18px;
+      font-size: 0.975rem; align-items: flex-start;
+    }
+    .contacts__list .icon { color: var(--gold); margin-top: 2px; }
+    .contacts__list strong {
+      display: block; font-size: 0.8rem; color: var(--text-muted);
+      font-weight: 500; margin-bottom: 2px;
+    }
+    .map-wrap {
+      border-radius: var(--radius); overflow: hidden; height: 260px;
+      border: 1px solid var(--border);
+    }
+    .map-wrap iframe { width: 100%; height: 100%; border: 0; }
+    .contact-form {
+      background: var(--light); padding: 28px; border-radius: var(--radius);
+      border: 1px solid var(--border);
+    }
+    .contact-form h3 { font-size: 1.15rem; margin-bottom: 6px; }
+    .contact-form > p { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 20px; }
+    .telegram-btn {
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      width: 100%; padding: 14px; background: #229ED9; color: #fff;
+      border-radius: 50px; font-weight: 600; font-size: 1rem; margin-bottom: 16px;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .telegram-btn:hover { background: #1a8bc2; transform: translateY(-1px); }
+    .form-divider {
+      display: flex; align-items: center; gap: 12px; margin: 16px 0;
+      color: var(--text-muted); font-size: 0.8rem;
+    }
+    .form-divider::before, .form-divider::after {
+      content: ''; flex: 1; height: 1px; background: var(--border);
+    }
+    .form-group { margin-bottom: 14px; }
+    .form-group label {
+      display: block; font-size: 0.8rem; font-weight: 500;
+      margin-bottom: 6px; color: var(--text-muted);
+    }
+    .form-group input, .form-group textarea {
+      width: 100%; padding: 13px 14px; border: 1px solid var(--border);
+      border-radius: var(--radius-sm); font-family: inherit; font-size: 1rem;
+      background: var(--white); transition: border-color 0.2s;
+    }
+    .form-group input:focus, .form-group textarea:focus {
+      border-color: var(--gold); outline: none;
+    }
+    .form-group textarea { resize: vertical; min-height: 80px; }
+    .honeypot { position: absolute; left: -9999px; opacity: 0; height: 0; width: 0; }
+
+    /* FOOTER */
+    .footer {
+      background: var(--graphite); color: var(--text-muted-dark);
+      padding: 36px 0; font-size: 0.875rem; text-align: center;
+    }
+    .footer a { color: var(--gold); }
+    .footer__logo {
+      font-weight: 800; font-size: 1.15rem; color: var(--white); margin-bottom: 8px;
+    }
+    .footer__logo span { color: var(--gold); }
+
+    /* MODAL */
+    .modal-overlay {
+      position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 200;
+      display: flex; align-items: center; justify-content: center; padding: 16px;
+      opacity: 0; visibility: hidden; transition: all 0.25s ease;
+    }
+    .modal-overlay.open { opacity: 1; visibility: visible; }
+    .modal {
+      background: var(--white); border-radius: var(--radius); width: 100%;
+      max-width: 420px; padding: 32px 28px; position: relative;
+      transform: translateY(16px); transition: transform 0.25s ease;
+    }
+    .modal-overlay.open .modal { transform: translateY(0); }
+    .modal__close {
+      position: absolute; top: 14px; right: 14px; width: 36px; height: 36px;
+      border-radius: 50%; background: var(--light); display: flex;
+      align-items: center; justify-content: center; font-size: 1.3rem;
+      color: var(--text-muted); transition: background 0.2s;
+    }
+    .modal__close:hover { background: var(--border); }
+    .modal h2 { font-size: 1.25rem; margin-bottom: 8px; letter-spacing: -0.02em; }
+    .modal p { font-size: 0.925rem; color: var(--text-muted); margin-bottom: 22px; }
+
+    /* RESPONSIVE */
+    @media (min-width: 600px) {
+      .premium-grid { grid-template-columns: repeat(3, 1fr); }
+      .steps { grid-template-columns: repeat(2, 1fr); }
+      .stats-grid { grid-template-columns: repeat(4, 1fr); }
+      .gallery-grid { grid-template-columns: repeat(3, 1fr); gap: 14px; }
+      .reviews-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 768px) {
+      .header__info { display: flex; }
+      .mobile-call { display: none; }
+      .hero { padding: 64px 0 80px; }
+      .hero__grid { grid-template-columns: 1.05fr 0.95fr; gap: 48px; }
+      .float-card--rating { left: -20px; }
+      .float-card--guarantee { right: -16px; }
+      .steps { grid-template-columns: repeat(4, 1fr); }
+      .contacts-grid { grid-template-columns: 1.1fr 0.9fr; }
+      .promo__inner { flex-direction: row; text-align: left; justify-content: space-between; }
+      .workshop-item { flex: 0 0 300px; }
+    }
+    @media (min-width: 960px) {
+      .reviews-grid { grid-template-columns: repeat(3, 1fr); }
+      .gallery-grid { gap: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="container header__inner">
+      <a href="#" class="logo">Вело<span>Мастер</span></a>
+      <div class="header__info">
+        <span>Минск</span>
+        <span>Пн–Вс 10:00–21:00</span>
+        <a href="tel:+375291234567" class="header__phone">+375 (29) 123-45-67</a>
+      </div>
+      <div class="header__cta">
+        <a href="tel:+375291234567" class="btn btn--outline-light btn--sm mobile-call">Позвонить</a>
+        <button class="btn btn--gold btn--sm" data-modal="callback">Перезвонить</button>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero" id="hero">
+    <div class="container">
+      <div class="hero__grid">
+        <div class="hero__content">
+          <div class="hero__badge">
+            <svg class="icon icon--sm" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Экспресс-диагностика 0 BYN · от 30 минут
+          </div>
+          <h1>Вернём вашему велосипеду заводскую точность за один день</h1>
+          <p class="hero__subtitle">Профессиональный сервис Shimano, SRAM и Fox. Бесплатная диагностика и гарантия до 12 месяцев.</p>
+          <div class="hero__actions">
+            <button class="btn btn--gold" data-modal="booking">Записаться на диагностику</button>
+            <a href="#price" class="btn btn--outline-light">Смотреть прайс</a>
+          </div>
+          <div class="hero__perks">
+            <div class="hero__perk">
+              <svg class="icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              Гарантия 12 месяцев
+            </div>
+            <div class="hero__perk">
+              <svg class="icon" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+              Склад оригинальных запчастей
+            </div>
+            <div class="hero__perk">
+              <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              Срочный ремонт за 1 час
+            </div>
+            <div class="hero__perk">
+              <svg class="icon" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              Мастера-профессионалы
+            </div>
+          </div>
+        </div>
+
+        <div class="hero__visual">
+          <div class="hero__photo-wrap">
+            <img src="images/hero.jpg" alt="Мастер за работой над велосипедом" width="440" height="550">
+          </div>
+          <div class="float-card float-card--rating">
+            <div class="float-card__icon">
+              <svg class="icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <div>
+              <div class="float-card__value">5.0 ★</div>
+              <div class="float-card__label">1 200+ обслуженных</div>
+            </div>
+          </div>
+          <div class="float-card float-card--guarantee">
+            <div class="float-card__icon">
+              <svg class="icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+            </div>
+            <div>
+              <div class="float-card__value">12 мес</div>
+              <div class="float-card__label">Гарантия на работы</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="live-bar">
+    <div class="container live-bar__inner">
+      <div class="live-item">
+        <span class="live-dot"></span>
+        <span>Сейчас в работе: <strong>3 велосипеда</strong></span>
+      </div>
+      <div class="live-item">
+        <svg class="icon icon--sm" viewBox="0 0 24 24" style="color:var(--gold)"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Среднее время ремонта сегодня: <strong>1 ч 40 мин</strong>
+      </div>
+      <div class="live-item">
+        <svg class="icon icon--sm" viewBox="0 0 24 24" style="color:var(--gold)"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        Свободных окон сегодня: <strong>4</strong>
+      </div>
+    </div>
+  </div>
+
+  <div class="trust-strip">
+    <div class="container trust-strip__inner">
+      <div class="trust-item">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Официальный сервис Shimano
+      </div>
+      <div class="trust-item">
+        <svg class="icon" viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+        Оригинальные запчасти в наличии
+      </div>
+      <div class="trust-item">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        Гарантийный талон на каждую работу
+      </div>
+      <div class="trust-item">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        5+ лет опыта мастеров
+      </div>
+    </div>
+  </div>
+
+  <section class="price" id="price">
+    <div class="container">
+      <h2 class="section-title">Прайс-лист и стоимость работ</h2>
+      <p class="section-subtitle">Фиксированные цены. Точную стоимость по фото уточним за 5 минут в мессенджере.</p>
+
+      <div class="tabs" role="tablist">
+        <button class="tab active" data-tab="to">ТО и комплекс</button>
+        <button class="tab" data-tab="brakes">Тормоза</button>
+        <button class="tab" data-tab="trans">Трансмиссия</button>
+        <button class="tab" data-tab="wheels">Колёса</button>
+        <button class="tab" data-tab="premium">Премиум и сезон</button>
+      </div>
+
+      <div class="tab-content active" id="tab-to">
+        <table class="price-table">
+          <thead><tr><th>Услуга</th><th>Цена</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>Экспресс-диагностика (10 мин при вас)<span class="note">Бесплатно при любом ремонте</span></td>
+              <td>0 BYN</td>
+            </tr>
+            <tr>
+              <td>Базовое ТО<span class="note">Настройка тормозов и передач, смазка цепи, протяжка, подкачка</span></td>
+              <td>от 65 BYN</td>
+            </tr>
+            <tr>
+              <td>Полное ТО<span class="note">Разборка узлов, замена смазки, мойка трансмиссии, правка колёс</span></td>
+              <td>от 145 BYN</td>
+            </tr>
+            <tr>
+              <td>VIP ТО + доставка<span class="note">Полное ТО + прокачка гидравлики + обслуживание вилки + доставка</span></td>
+              <td>от 280 BYN</td>
+            </tr>
+            <tr>
+              <td>Сборка нового велосипеда из коробки</td>
+              <td>от 50 BYN</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="tab-content" id="tab-brakes">
+        <table class="price-table">
+          <thead><tr><th>Услуга</th><th>Цена</th></tr></thead>
+          <tbody>
+            <tr><td>Настройка тормоза (V-Brake / мех. диск) — 1 сторона</td><td>от 15 BYN</td></tr>
+            <tr><td>Настройка гидравлического тормоза — 1 сторона</td><td>от 20 BYN</td></tr>
+            <tr><td>Прокачка гидравлики — 1 сторона</td><td>от 25 BYN</td></tr>
+            <tr><td>Замена колодок (дисковые) с настройкой</td><td>от 18 BYN</td></tr>
+            <tr><td>Правка тормозного диска (ротора)</td><td>от 15 BYN</td></tr>
+            <tr><td>Замена тросика/рубашки с настройкой</td><td>от 20 BYN</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="tab-content" id="tab-trans">
+        <table class="price-table">
+          <thead><tr><th>Услуга</th><th>Цена</th></tr></thead>
+          <tbody>
+            <tr><td>Настройка переключателя (перед / зад)</td><td>от 18 BYN</td></tr>
+            <tr><td>Замена тросика/рубашки переключения с настройкой</td><td>от 25 BYN</td></tr>
+            <tr><td>Чистка и смазка трансмиссии (цепь + звёзды)</td><td>от 30 BYN</td></tr>
+            <tr><td>ТО / замена каретки</td><td>от 25 BYN</td></tr>
+            <tr><td>Замена кассеты / трещотки</td><td>от 15 BYN</td></tr>
+            <tr><td>Замена цепи</td><td>от 12 BYN</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="tab-content" id="tab-wheels">
+        <table class="price-table">
+          <thead><tr><th>Услуга</th><th>Цена</th></tr></thead>
+          <tbody>
+            <tr><td>Исправление «восьмёрки» (1 колесо)</td><td>от 25 BYN</td></tr>
+            <tr><td>Протяжка спиц / устранение «яйца»</td><td>от 20 BYN</td></tr>
+            <tr><td>Замена камеры (со снятием колеса)</td><td>от 12 BYN</td></tr>
+            <tr><td>ТО втулки (перед / зад) с заменой смазки</td><td>от 20 BYN</td></tr>
+            <tr><td>Сборка колеса / переспицовка</td><td>от 55 BYN</td></tr>
+            <tr><td>Замена покрышки</td><td>от 15 BYN</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="tab-content" id="tab-premium">
+        <div class="premium-grid">
+          <div class="premium-card">
+            <h3>
+              <svg class="icon" viewBox="0 0 24 24"><path d="M20 17.58A5 5 0 0 0 18 8h-1.26A8 8 0 1 0 4 16.25"/><line x1="8" y1="16" x2="8.01" y2="16"/><line x1="8" y1="20" x2="8.01" y2="20"/><line x1="12" y1="18" x2="12.01" y2="18"/><line x1="12" y1="22" x2="12.01" y2="22"/><line x1="16" y1="16" x2="16.01" y2="16"/><line x1="16" y1="20" x2="16.01" y2="20"/></svg>
+              Сезонное хранение
+            </h3>
+            <p>Бережное хранение в сухом отапливаемом боксе. Консервация, мойка и финальное ТО перед весной.</p>
+            <div class="price-tag">от 18 BYN / мес<span>Пакет «Вся зима» — от 95 BYN</span></div>
+          </div>
+          <div class="premium-card">
+            <h3>
+              <svg class="icon" viewBox="0 0 24 24"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
+              Порошковая покраска
+            </h3>
+            <p>Полный разбор, пескоструй, полимерное покрытие в камере + лак. Цвета по шкале RAL. Защита от сколов.</p>
+            <div class="price-tag">от 280 BYN<span>зависит от типа рамы</span></div>
+          </div>
+          <div class="premium-card">
+            <h3>
+              <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+              Сборка кастомов
+            </h3>
+            <p>Сборка с нуля под рост, стиль и бюджет. Shimano, SRAM, Fox, RockShox. Торцовка рамы и сборка колёс.</p>
+            <div class="price-tag">от 120 BYN<span>индивидуальный расчёт</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="price-cta">
+        <button class="btn btn--gold" data-modal="photo">Узнать точную стоимость по фото</button>
+        <p style="margin-top:14px;font-size:0.875rem;color:var(--text-muted)">Пришлите фото — ответим в Telegram / WhatsApp за 5–10 минут</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="how">
+    <div class="container">
+      <h2 class="section-title">Как мы работаем</h2>
+      <p class="section-subtitle">Прозрачный процесс без сюрпризов по цене</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step__num">1</div>
+          <div>
+            <h3>Заявка или приезд</h3>
+            <p>Оставляете заявку или привозите байк. Можем забрать сами.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step__num">2</div>
+          <div>
+            <h3>Бесплатная диагностика</h3>
+            <p>Мастер проводит диагностику при вас за 10 минут.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step__num">3</div>
+          <div>
+            <h3>Согласование цены</h3>
+            <p>Фиксируем стоимость. Цена не изменится в процессе.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step__num">4</div>
+          <div>
+            <h3>Готовый байк + гарантия</h3>
+            <p>Забираете с гарантийным талоном на работы и детали.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats" id="advantages">
+    <div class="container">
+      <h2 class="section-title">Почему нам доверяют</h2>
+      <p class="section-subtitle">Цифры, которые говорят громче обещаний</p>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-card__icon">
+            <svg class="icon icon--lg" viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+          </div>
+          <div class="stat-card__value">5+</div>
+          <h3>Лет опыта</h3>
+          <p>Все мастера — дипломированные механики и фанаты велоспорта</p>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card__icon">
+            <svg class="icon icon--lg" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+          </div>
+          <div class="stat-card__value">1 200+</div>
+          <h3>Обслуженных байков</h3>
+          <p>Оригинальные детали Shimano, SRAM, Fox, Maxxis в наличии</p>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card__icon">
+            <svg class="icon icon--lg" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+          </div>
+          <div class="stat-card__value">12</div>
+          <h3>Месяцев гарантии</h3>
+          <p>Честная гарантия на все виды работ и установленные компоненты</p>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card__icon">
+            <svg class="icon icon--lg" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
+          <div class="stat-card__value">30+</div>
+          <h3>Минут на срочный</h3>
+          <p>Мелкие поломки устраняем, пока вы пьёте кофе в мастерской</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="process">
+    <div class="container">
+      <h2 class="section-title">Процесс в деталях</h2>
+      <p class="section-subtitle">Реальная работа, а не стоковые фото</p>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="images/process-1.jpg" alt="Чистка трансмиссии" loading="lazy">
+          <div class="gallery-caption">Глубокая чистка трансмиссии</div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/process-2.jpg" alt="Настройка переключателей" loading="lazy">
+          <div class="gallery-caption">Точная настройка передач</div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/process-3.jpg" alt="Работа со станком" loading="lazy">
+          <div class="gallery-caption">Правка колёс на станке</div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/process-4.jpg" alt="Сборка колеса" loading="lazy">
+          <div class="gallery-caption">Сборка и натяжка спиц</div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/process-5.jpg" alt="Мастерская" loading="lazy">
+          <div class="gallery-caption">Рабочее место механика</div>
+        </div>
+        <div class="gallery-item">
+          <img src="images/process-6.jpg" alt="Готовый велосипед" loading="lazy">
+          <div class="gallery-caption">Готовый к выдаче байк</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="before-after" style="background:var(--white)">
+    <div class="container">
+      <h2 class="section-title">До / После</h2>
+      <p class="section-subtitle">Потяните бегунок — увидите разницу своими глазами</p>
+      <div class="ba-wrapper" id="baSlider">
+        <img src="images/after.jpg" alt="После" width="900" height="560">
+        <div class="ba-after" id="baAfter">
+          <img src="images/before.jpg" alt="До" width="900" height="560">
+        </div>
+        <div class="ba-handle" id="baHandle"></div>
+        <div class="ba-labels">
+          <span class="ba-label">До</span>
+          <span class="ba-label">После</span>
+        </div>
+      </div>
+      <p style="text-align:center;margin-top:18px;font-size:0.875rem;color:var(--text-muted)">Грязная трансмиссия → идеально вычищенный узел · Погнутый обод → ровное колесо</p>
+    </div>
+  </section>
+
+  <section class="workshop" id="workshop">
+    <div class="container">
+      <h2 class="section-title">Наша мастерская</h2>
+      <p class="section-subtitle">Место, куда можно доверить байк за несколько тысяч долларов</p>
+      <div class="workshop-scroll">
+        <div class="workshop-item">
+          <img src="images/workshop-1.jpg" alt="Мастерская 1" loading="lazy">
+          <span>Рабочая зона</span>
+        </div>
+        <div class="workshop-item">
+          <img src="images/workshop-2.jpg" alt="Мастерская 2" loading="lazy">
+          <span>Инструмент</span>
+        </div>
+        <div class="workshop-item">
+          <img src="images/workshop-3.jpg" alt="Мастерская 3" loading="lazy">
+          <span>Диагностика</span>
+        </div>
+        <div class="workshop-item">
+          <img src="images/workshop-4.jpg" alt="Мастерская 4" loading="lazy">
+          <span>Чистка узлов</span>
+        </div>
+        <div class="workshop-item">
+          <img src="images/workshop-5.jpg" alt="Мастерская 5" loading="lazy">
+          <span>Готовые байки</span>
+        </div>
+        <div class="workshop-item">
+          <img src="images/workshop-6.jpg" alt="Мастерская 6" loading="lazy">
+          <span>Станок</span>
+        </div>
+        <div class="workshop-item">
+          <img src="images/workshop-7.jpg" alt="Мастерская 7" loading="lazy">
+          <span>Сборка колёс</span>
+        </div>
+        <div class="workshop-item">
+          <img src="images/workshop-8.jpg" alt="Мастерская 8" loading="lazy">
+          <span>Зона выдачи</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="reviews">
+    <div class="container">
+      <h2 class="section-title">Отзывы клиентов</h2>
+      <p class="section-subtitle">Реальные люди, которые доверили нам свои байки</p>
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="review-card__header">
+            <img class="review-card__avatar" src="images/avatar-1.jpg" alt="Андрей" width="52" height="52">
+            <div>
+              <div class="review-card__name">Андрей К.</div>
+              <div class="review-card__meta">Яндекс.Карты · 2 недели назад</div>
+            </div>
+          </div>
+          <div class="review-card__stars">★★★★★</div>
+          <p>Привёз Specialized с «восьмёркой» и плавающими тормозами. Сделали за 40 минут, цена как договаривались. Гарантию дали на бумаге. Рекомендую.</p>
+        </div>
+        <div class="review-card">
+          <div class="review-card__header">
+            <img class="review-card__avatar" src="images/avatar-2.jpg" alt="Мария" width="52" height="52">
+            <div>
+              <div class="review-card__name">Мария С.</div>
+              <div class="review-card__meta">Google · 1 месяц назад</div>
+            </div>
+          </div>
+          <div class="review-card__stars">★★★★★</div>
+          <p>Очень удобно — забрали байк, сделали полное ТО и привезли обратно. Мастер подробно объяснил, что и зачем менял. Чувствуется уровень.</p>
+        </div>
+        <div class="review-card">
+          <div class="review-card__header">
+            <img class="review-card__avatar" src="images/avatar-3.jpg" alt="Дмитрий" width="52" height="52">
+            <div>
+              <div class="review-card__name">Дмитрий В.</div>
+              <div class="review-card__meta">2ГИС · 3 недели назад</div>
+            </div>
+          </div>
+          <div class="review-card__stars">★★★★★</div>
+          <p>Сдавал Trek на сезонное хранение + покраску рамы. Весной получил как новый. Качество на уровне фирменного сервиса, цены адекватные.</p>
+        </div>
+      </div>
+      <div class="reviews-more">
+        <a href="https://yandex.by/maps/" target="_blank" rel="noopener" class="btn btn--outline-dark">Смотреть ещё отзывы на картах</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="promo" id="promo">
+    <div class="container">
+      <div class="promo__inner">
+        <div>
+          <div class="promo__badge">Акция сезона</div>
+          <h2 style="margin-top:12px">Полное ТО + мойка со скидкой 15% до конца августа</h2>
+          <p style="margin-top:10px">Успейте подготовить байк к осеннему сезону по специальной цене. Количество мест ограничено.</p>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:16px">
+          <div class="promo__timer" id="promoTimer">
+            <span id="tDays">00</span>
+            <span id="tHours">00</span>
+            <span id="tMins">00</span>
+          </div>
+          <button class="btn btn--gold" data-modal="booking">Записаться со скидкой</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contacts" id="contacts">
+    <div class="container">
+      <h2 class="section-title">Контакты</h2>
+      <p class="section-subtitle">Приезжайте или напишите — ответим быстро</p>
+      <div class="contacts-grid">
+        <div class="contacts__info">
+          <h3>ВелоМастер · Минск</h3>
+          <ul class="contacts__list">
+            <li>
+              <svg class="icon" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <div>
+                <strong>Адрес</strong>
+                ул. Примерная, 12 (вход со двора, рядом с «ВелоМир»)
+              </div>
+            </li>
+            <li>
+              <svg class="icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <div>
+                <strong>Телефон</strong>
+                <a href="tel:+375291234567">+375 (29) 123-45-67</a>
+              </div>
+            </li>
+            <li>
+              <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <div>
+                <strong>Режим работы</strong>
+                Ежедневно 10:00–21:00 (без выходных)
+              </div>
+            </li>
+          </ul>
+          <div class="map-wrap">
+            <iframe src="https://yandex.ru/map-widget/v1/?ll=27.561765%2C53.902496&z=14&pt=27.561765,53.902496,pm2rdm" allowfullscreen loading="lazy" title="Карта мастерской"></iframe>
+          </div>
+        </div>
+
+        <div class="contact-form">
+          <h3>Написать главному механику</h3>
+          <p>Быстрее всего — в Telegram. Отвечаем в течение 10–15 минут в рабочее время.</p>
+          <a href="https://t.me/" target="_blank" rel="noopener" class="telegram-btn">
+            <svg class="icon" viewBox="0 0 24 24" style="stroke:none;fill:currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295-.002 0-.003 0-.005 0l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.941z"/></svg>
+            Написать в Telegram
+          </a>
+          <div class="form-divider">или оставьте номер</div>
+          <form id="contactForm" novalidate>
+            <div class="form-group">
+              <label for="name">Имя</label>
+              <input type="text" id="name" name="name" placeholder="Как к вам обращаться" required>
+            </div>
+            <div class="form-group">
+              <label for="phone">Телефон</label>
+              <input type="tel" id="phone" name="phone" placeholder="+375 (29) 123-45-67" required>
+            </div>
+            <div class="form-group">
+              <label for="message">Сообщение (необязательно)</label>
+              <textarea id="message" name="message" placeholder="Кратко опишите вопрос"></textarea>
+            </div>
+            <div class="honeypot" aria-hidden="true">
+              <input type="text" name="website" tabindex="-1" autocomplete="off">
+            </div>
+            <button type="submit" class="btn btn--gold btn--full">Жду звонка</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__logo">Вело<span>Мастер</span></div>
+      <p>© 2026 · Минск · Профессиональный сервис велосипедов</p>
+      <p style="margin-top:8px"><a href="tel:+375291234567">+375 (29) 123-45-67</a></p>
+    </div>
+  </footer>
+
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal" role="dialog" aria-modal="true">
+      <button class="modal__close" id="modalClose" aria-label="Закрыть">×</button>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <script>
+    document.querySelectorAll('.tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById('tab-' + tab.dataset.tab).classList.add('active');
+      });
+    });
+
+    function phoneMask(input) {
+      input.addEventListener('input', function(e) {
+        let x = e.target.value.replace(/\D/g, '').match(/(\d{0,3})(\d{0,2})(\d{0,3})(\d{0,2})(\d{0,2})/);
+        if (!x[1]) { e.target.value = ''; return; }
+        let str = '+375';
+        if (x[2]) str += ' (' + x[2];
+        if (x[3]) str += ') ' + x[3];
+        if (x[4]) str += '-' + x[4];
+        if (x[5]) str += '-' + x[5];
+        e.target.value = str;
+      });
+      input.addEventListener('focus', function() {
+        if (!this.value) this.value = '+375 (';
+      });
+    }
+
+    const overlay = document.getElementById('modalOverlay');
+    const modalBody = document.getElementById('modalBody');
+    const modalClose = document.getElementById('modalClose');
+
+    const forms = {
+      callback: {
+        title: 'Перезвонить мне',
+        desc: 'Оставьте номер — перезвоним в течение 10 минут в рабочее время.',
+        fields: `
+          <div class="form-group"><label>Имя</label><input type="text" name="name" placeholder="Ваше имя" required></div>
+          <div class="form-group"><label>Телефон</label><input type="tel" name="phone" class="phone-input" placeholder="+375 (29) 123-45-67" required></div>
+          <div class="honeypot"><input type="text" name="website" tabindex="-1"></div>
+          <button type="submit" class="btn btn--gold btn--full">Жду звонка</button>`
+      },
+      booking: {
+        title: 'Запись на диагностику',
+        desc: 'Диагностика бесплатно. Подтвердим время по телефону.',
+        fields: `
+          <div class="form-group"><label>Имя</label><input type="text" name="name" placeholder="Ваше имя" required></div>
+          <div class="form-group"><label>Телефон</label><input type="tel" name="phone" class="phone-input" placeholder="+375 (29) 123-45-67" required></div>
+          <div class="form-group"><label>Желаемое время</label><input type="text" name="time" placeholder="Сегодня после 16:00"></div>
+          <div class="honeypot"><input type="text" name="website" tabindex="-1"></div>
+          <button type="submit" class="btn btn--gold btn--full">Записаться</button>`
+      },
+      photo: {
+        title: 'Стоимость по фото',
+        desc: 'Опишите проблему — пришлём ссылку для загрузки фото в Telegram.',
+        fields: `
+          <div class="form-group"><label>Имя</label><input type="text" name="name" placeholder="Ваше имя" required></div>
+          <div class="form-group"><label>Телефон / Telegram</label><input type="tel" name="phone" class="phone-input" placeholder="+375 (29) 123-45-67" required></div>
+          <div class="form-group"><label>Проблема</label><textarea name="message" placeholder="Восьмёрка, тормоза плохо держат..."></textarea></div>
+          <div class="honeypot"><input type="text" name="website" tabindex="-1"></div>
+          <button type="submit" class="btn btn--gold btn--full">Отправить</button>`
+      }
+    };
+
+    function openModal(type) {
+      const data = forms[type];
+      if (!data) return;
+      modalBody.innerHTML = `<h2>${data.title}</h2><p>${data.desc}</p><form id="modalForm">${data.fields}</form>`;
+      overlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      modalBody.querySelectorAll('.phone-input').forEach(phoneMask);
+      document.getElementById('modalForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const hp = this.querySelector('[name="website"]');
+        if (hp && hp.value) return;
+        alert('Спасибо! Мы свяжемся с вами в ближайшее время.');
+        closeModal();
+      });
+    }
+    function closeModal() {
+      overlay.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    document.querySelectorAll('[data-modal]').forEach(btn => {
+      btn.addEventListener('click', () => openModal(btn.dataset.modal));
+    });
+    modalClose.addEventListener('click', closeModal);
+    overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+    phoneMask(document.getElementById('phone'));
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const hp = this.querySelector('[name="website"]');
+      if (hp && hp.value) return;
+      alert('Спасибо! Главный механик ответит в ближайшее время.');
+      this.reset();
+    });
+
+    const baWrapper = document.getElementById('baSlider');
+    const baAfter = document.getElementById('baAfter');
+    const baHandle = document.getElementById('baHandle');
+    let isDragging = false;
+    function updateBA(x) {
+      const rect = baWrapper.getBoundingClientRect();
+      let pos = ((x - rect.left) / rect.width) * 100;
+      pos = Math.max(5, Math.min(95, pos));
+      baAfter.style.width = pos + '%';
+      baHandle.style.left = pos + '%';
+    }
+    baHandle.addEventListener('mousedown', () => isDragging = true);
+    baWrapper.addEventListener('mousedown', e => { isDragging = true; updateBA(e.clientX); });
+    window.addEventListener('mouseup', () => isDragging = false);
+    window.addEventListener('mousemove', e => { if (isDragging) updateBA(e.clientX); });
+    baWrapper.addEventListener('touchstart', e => { isDragging = true; updateBA(e.touches[0].clientX); }, { passive: true });
+    window.addEventListener('touchend', () => isDragging = false);
+    window.addEventListener('touchmove', e => { if (isDragging) updateBA(e.touches[0].clientX); }, { passive: true });
+
+    function updateTimer() {
+      const end = new Date('2026-08-31T23:59:59').getTime();
+      const now = Date.now();
+      const diff = Math.max(0, end - now);
+      const days = Math.floor(diff / 86400000);
+      const hours = Math.floor((diff % 86400000) / 3600000);
+      const mins = Math.floor((diff % 3600000) / 60000);
+      document.getElementById('tDays').textContent = String(days).padStart(2, '0');
+      document.getElementById('tHours').textContent = String(hours).padStart(2, '0');
+      document.getElementById('tMins').textContent = String(mins).padStart(2, '0');
+    }
+    updateTimer();
+    setInterval(updateTimer, 60000);
+  </script>
+</body>
+</html>
